@@ -7,7 +7,8 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage
-  },  {
+  },
+  {
     path: 'whoweare',
     loadChildren: () => import('./whoweare/whoweare.module').then( m => m.WhowearePageModule)
   },
