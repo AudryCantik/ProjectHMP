@@ -1,6 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>HOME</ion-title>
+    <ion-title  size="large">HOME</ion-title>
+    <ion-buttons slot="end">
+      <ion-buttons style="padding-right: 10px">
+        <ion-icon name="person-circle-outline" size="large"></ion-icon>
+      </ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -9,21 +14,29 @@
     <ion-toolbar>
       <ion-title size="large">HOME</ion-title>
     </ion-toolbar>
+    
   </ion-header>
+
   <div id="container" class="image-container">
-     <img src ="assets/console.png" width="100px" class="center-image">
-     <h2>What We Play</h2><br>
-     <img src ="assets/about-us.png" width="100px" class="center-image">
-    <h2>Who We Are</h2><br>
-    <img src ="assets/calendar.png" width="100px" class="center-image">
-  <h2>Our Schedule</h2>
+    <div class="router" [routerLink]="['/home/whatweplay']">
+      <div class= "circle-container">
+        <img src ="assets/game-console.png" width="80px" class="center-image">
+      </div>
+       <h2>What We Play</h2>
+    </div>
+
+    <div class="router" [routerLink]="['/home/whoweare']">
+      <div class ="circle-container" >
+        <img src ="assets/team.png" width="80px" class="center-image">
+       </div>
+       <h2>Who We Are</h2><br>
+    </div>
+
+    <div class="router" [routerLink]="['/home/ourschedule']">
+      <div class="circle-container">
+        <img src ="assets/calendars.png" width="80px" class="center-image">
+       </div>
+        <h2>Our Schedule</h2>
+    </div>
   </div>
-  <!-- <div id="container" class="image-container">
-    <img src ="assets/about-us.png" width="100px" class="center-image"><br>
-    <h2>Who We Are</h2>
- </div>
- <div id="container" class="image-container">
-  <img src ="assets/calendar.png" width="100px" class="center-image"><br>
-  <h2>Our Schedule</h2>
-</div> -->
 </ion-content>
