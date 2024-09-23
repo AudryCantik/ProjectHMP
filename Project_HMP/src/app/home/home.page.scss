@@ -1,4 +1,4 @@
-.image-container {
+.imagecontainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,7 +8,7 @@
           
   }
 
-  .circle-container {
+  .circlecontainer {
     width: 120px;
     height: 120px;
     border-radius: 90%;
@@ -21,7 +21,6 @@
     background-color: #272f7a;
   }
 
-
   .router{
     display: flex;
     flex-direction: column;
@@ -32,7 +31,7 @@
     transition: transform 0.3s ease;
   }
   
-  .center-image {
+  .centerimage {
     max-width: 100%;     
     transition: transform 0.3s ease;   
   }
@@ -44,27 +43,24 @@
     transition: transform 0.3s ease, color 0.3s ease;
   }
   
-
-
-
   #container{
     padding-top: 20px;
   }
 
-  .router:hover .circle-container {
-    background-color: #838abd;  /* Warna latar belakang saat hover */
+  .router:hover .circlecontainer {
+    background-color: #838abd;
   }
 
-  .router:active .circle-container {
+  .router:active .circlecontainer {
     background-color: #8a90bf;
   }
 
-  .router:hover .center-image {
+  .router:hover .centerimage {
     transform: scale(1.1);
   }
   
   // kalau di handphone pakai aktif
-  .router:active .center-image {
+  .router:active .centerimage {
     transform: scale(1.1);
   }
 
