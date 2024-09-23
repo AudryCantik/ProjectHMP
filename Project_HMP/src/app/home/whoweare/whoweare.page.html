@@ -1,13 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>whoweare</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Who We Are</ion-title>
+    <ion-buttons slot="end">
+      <ion-buttons style="padding-right: 10px">
+        <ion-icon name="person-circle-outline" size="large"></ion-icon>
+      </ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">whoweare</ion-title>
+      <ion-title>Who We Are</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="container">
+    <img src="assets/weare.jpg" alt="">
+    <h5>Semangkiy🍉</h5>
+    <p>Founded in 2024, 🍉 is an elite esports organization based in Surabaya. Our mission is to compete at the highest level of gaming across multiple titles while fostering a community of passionate players and fans. Known for our strategic gameplay, high-energy performances, and relentless pursuit of excellence, 🍉 has quickly risen as a formidable force in the esports world.<br><br>
+      Our roster features talented players from around the globe, specializing in games such as Valorant, Mobile Legend, and Fortnaite. We pride ourselves on teamwork, adaptability, and a deep commitment to the esports culture, pushing boundaries in tournaments and content creation alike. With a dedicated coaching staff, state-of-the-art training facilities, and the support of our loyal fanbase, we aim to set new standards in the competitive gaming scene.</p><br>
+    <ion-button (click)="likes()">  
+      <ion-text>{{like}}</ion-text>    
+      <ion-icon name="thumbs-up-outline"></ion-icon>
+    </ion-button>
+  </div>
 </ion-content>

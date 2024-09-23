@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WhowearePage implements OnInit {
 
+  like:number = 0;
+
   constructor() { }
+
+  likes(){
+    this.like++;
+  }
 
   ngOnInit() {
   }

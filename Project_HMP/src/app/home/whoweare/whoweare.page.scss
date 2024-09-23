@@ -1,0 +1,22 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    // border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: justify; /* Center text */
+}
+
+.container h5{
+    text-align: center;
+}
+  
+.container img {
+    width: 100%; 
+    height: auto;
+    // border-radius: 10px;
+}
+  
+.container ion-button{
+    float: right;
+}
