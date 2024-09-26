@@ -1,33 +1,25 @@
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-    // border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    text-align: justify; /* Center text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: justify;
 }
 
-.container h5{
+.container h2{
     text-align: center;
 }
   
 .container img {
     width: 100%; 
     height: auto;
-    // border-radius: 10px;
 }
   
-.container ion-button{
-    float: right;
-    margin: 0 5px;
-
-}
-
 .button-container{
     display: flex;
-    justify-content: flex-end;
     padding-bottom: 10px;
     margin-top: auto;
+    float: right;
 }
 
 .button2{
