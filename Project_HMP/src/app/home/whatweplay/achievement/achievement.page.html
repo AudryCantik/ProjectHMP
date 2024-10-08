@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+      <ion-title> {{selectedgameName}} Achievement</ion-title>
+      <ion-buttons slot="end">
+        <ion-buttons style="padding-right: 10px">
+          <ion-icon name="person-circle-outline" size="large"></ion-icon>
+        </ion-buttons>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"> {{selectedgameName}} achievement</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container">
+    <ion-img [src]="gameimage"></ion-img>
+
+    <ion-item>
+      <ion-select label="Year" labelplacement="stacked">
+        <ion-select-option value="All">All</ion-select-option>
+        <!-- <ion-select-option></ion-select-option> -->
+      </ion-select>
+    </ion-item>
+  </div>
+</ion-content>

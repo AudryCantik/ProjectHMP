@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: WhatweplayPage
+  },  {
+    path: 'achievement',
+    loadChildren: () => import('./achievement/achievement.module').then( m => m.AchievementPageModule)
   }
+
 ];
 
 @NgModule({
