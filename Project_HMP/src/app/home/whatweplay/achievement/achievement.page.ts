@@ -14,17 +14,29 @@ export class AchievementPage implements OnInit {
   achievements: any[] = [];
   selectedgameName: string ="";
   gameimage: string ="";
-  constructor(private route: ActivatedRoute, private gameservice: GameserviceService,private achievementservice : AchievementserviceService) { }
+  selectedyear: number = 0;
 
+  array_year:number[] = [];
+
+  generateNumberOptions(start: number, end: number, step: number): number[]{
+    const options: number[] = [];
+    for (let i = start; i <= end; i += step) {
+      options.push(i);
+    }
+    return options;
+  }
+
+  constructor(private route: ActivatedRoute, private gameservice: GameserviceService,private achievementservice : AchievementserviceService) { }
   ngOnInit() {
     this.route.params.subscribe(params =>{
       this.selectedgameName = params ['game'];
       this.gameimage = params ['gameimg'];
 
       this.achievements = this.achievementservice.getAchievement(this.selectedgameName);
-      
-      this.games = this.gameservice.game;
     });
+    this.array_year = this.generateNumberOptions(2020,2030,1);
+    console.log(this.array_year);
+
   }
 
 }

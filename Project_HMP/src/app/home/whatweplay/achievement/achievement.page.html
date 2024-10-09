@@ -23,10 +23,11 @@
     <ion-img [src]="gameimage"></ion-img>
 
     <ion-item>
-      <ion-select label="Year" labelplacement="stacked">
-        <ion-select-option value="All">All</ion-select-option>
-        <!-- <ion-select-option></ion-select-option> -->
+      <ion-select label="Year" [(ngModel)]="selectedyear">
+        <ion-select-option *ngFor="let year of array_year" [value]="year">{{year}}</ion-select-option>
       </ion-select>
     </ion-item>
+
+    <p>{{array_year}}</p>
   </div>
 </ion-content>

@@ -32,6 +32,4 @@ export class AchievementserviceService {
   getAchievement(gamename:string){
     return this.allachievement[gamename] || [];
   }
-
-  
 }
