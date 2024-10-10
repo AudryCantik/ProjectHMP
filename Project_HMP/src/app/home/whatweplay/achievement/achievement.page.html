@@ -23,19 +23,16 @@
     <ion-img [src]="gameimage"></ion-img>
 
     <ion-item>
-      <ion-select label="Year" [(ngModel)]="selectedyear">
-        <ion-select-option *ngFor="let year of array_year" [value]="year">{{year}}</ion-select-option>
-      </ion-select>
+      <h2>{{selectedgameName}}</h2>
     </ion-item>
 
-    <ion-item>
-      <ion-select label="Default label" placeholder="Favorite Fruit">
-        <ion-select-option value="apple">Apple</ion-select-option>
-        <ion-select-option value="banana">Banana</ion-select-option>
-        <ion-select-option value="orange">Orange</ion-select-option>
-      </ion-select>
-    </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-select label="Year" [(ngModel)]="selectedyear" label-placement ="floating" fill="outline">
+          <ion-select-option *ngFor="let year of array_year" [value]="year">{{year}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+  </ion-list>
 
-    <p>{{array_year}}</p>
   </div>
 </ion-content>

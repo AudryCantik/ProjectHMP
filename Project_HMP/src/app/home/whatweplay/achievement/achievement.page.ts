@@ -26,6 +26,10 @@ export class AchievementPage implements OnInit {
     return options;
   }
 
+  // filtereAchievement(){
+  //   if(this.selectedyear =  )
+  // }
+
   constructor(private route: ActivatedRoute, private gameservice: GameserviceService,private achievementservice : AchievementserviceService) { }
   ngOnInit() {
     this.route.params.subscribe(params =>{
@@ -34,8 +38,7 @@ export class AchievementPage implements OnInit {
 
       this.achievements = this.achievementservice.getAchievement(this.selectedgameName);
     });
-    this.array_year = this.generateNumberOptions(2020,2030,1);
-    console.log(this.array_year); 
+    this.array_year = this.generateNumberOptions(2020,2030,1); 
 
   }
 
