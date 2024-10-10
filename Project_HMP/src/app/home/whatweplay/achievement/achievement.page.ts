@@ -35,7 +35,7 @@ export class AchievementPage implements OnInit {
       this.achievements = this.achievementservice.getAchievement(this.selectedgameName);
     });
     this.array_year = this.generateNumberOptions(2020,2030,1);
-    console.log(this.array_year);
+    console.log(this.array_year); 
 
   }
 
