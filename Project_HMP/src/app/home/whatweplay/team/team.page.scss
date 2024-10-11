@@ -1,0 +1,23 @@
+.container ion-img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px;
+}
+
+.content ion-img{
+    width: 500px;
+    height: 500px;
+}
+
+.content h1{
+    text-align: center;
+}
+
+ion-col {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+ion-list{ text-align: center; }
