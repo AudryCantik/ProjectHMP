@@ -15,6 +15,7 @@ export class AchievementPage implements OnInit {
   selectedgameName: string ="";
   gameimage: string ="";
   selectedyear: number = 0;
+  chooseAchievement: any[] =[]
 
   array_year:number[] = [];
 
@@ -26,9 +27,22 @@ export class AchievementPage implements OnInit {
     return options;
   }
 
-  // filtereAchievement(){
-  //   if(this.selectedyear =  )
-  // }
+  filtereAchievement(){
+    this.chooseAchievement = [];
+
+    if(this.selectedyear == 0 ){
+      this.chooseAchievement = this.achievements;
+    }else {
+      for(let achievement of this.achievements)
+        if(achievement.year === this.selectedyear){
+          this.chooseAchievement.push(achievement);
+        }
+      // this.chooseAchievement = this.achievements.filter(achievement => 
+      //   achievement.year  === this.selectedyear
+      // );
+    }
+    console.log('Filtered Achievements:', this.chooseAchievement);
+  }
 
   constructor(private route: ActivatedRoute, private gameservice: GameserviceService,private achievementservice : AchievementserviceService) { }
   ngOnInit() {
