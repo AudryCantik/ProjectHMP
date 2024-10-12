@@ -7,8 +7,8 @@ const routes: Routes = [
     redirectTo: 'home',  // Mengarahkan path kosong ke halaman 'home'
     pathMatch: 'full'
   }, 
+
   {
-    
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
@@ -16,6 +16,11 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+
+  {
+    path: 'scheduledetails/:name', // Adding the route for ScheduledetailsPage with a dynamic ID parameter
+    loadChildren: () => import('./home/scheduledetails/scheduledetails.module').then(m => m.ScheduledetailsPageModule)
   }
 
 ];

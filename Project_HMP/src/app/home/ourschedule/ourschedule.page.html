@@ -1,61 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Our Schedule</ion-title>
-    <ion-buttons slot="end" style="padding-right: 10px">
-      <ion-icon name="person-circle-outline" size="large"></ion-icon>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title size="large" class="ion-text-center">Schedule</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+        <ion-title> Our Schedule </ion-title>
+        <ion-buttons slot="end">
+          <ion-buttons style="padding-right: 10px">
+            <ion-icon name="person-circle-outline" size="large"></ion-icon>
+          </ion-buttons>
+        </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
-  <ion-list>
-    <ion-item>
-      <ion-label>
-        <h2>05 SEP</h2>
-        <p>Regional Qualifier - Valorant</p>
-      </ion-label>
-      <ion-note slot="end">Team A</ion-note>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>
-        <h2>10 SEP</h2>
-        <p>League of Legends Workshop</p>
-      </ion-label>
-      <ion-note slot="end">Team C</ion-note>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>
-        <h2>07 OCT</h2>
-        <p>Call of Duty Championship</p>
-      </ion-label>
-      <ion-note slot="end">Team A</ion-note>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>
-        <h2>11 NOV</h2>
-        <p>Dota 2 Livestream</p>
-      </ion-label>
-      <ion-note slot="end">Team B</ion-note>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>
-        <h2>04 DEC</h2>
-        <p>Fortnite Invitational</p>
-      </ion-label>
-      <ion-note slot="end">Team A</ion-note>
-    </ion-item>
-  </ion-list>
+  <ion-item *ngFor="let event of schedule" [routerLink]="['/scheduledetails', event.name]">
+    <ion-label>
+      <h2>{{event.date}}</h2>
+      <p>{{event.name}}</p>
+    </ion-label>
+    <ion-note slot="end">{{event.team}}</ion-note>
+  </ion-item>
 </ion-content>
