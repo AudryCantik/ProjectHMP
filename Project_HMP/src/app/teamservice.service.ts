@@ -8,11 +8,11 @@ export class TeamserviceService {
   allteam:{ [key: string]: {name: string; image: string}[] } =
     {
       'Valorant':[
-        { name: "The Princess", image: "assets/theprincess.jpg" },
+        { name: "Dark Swan", image: "assets/darkswan.jpg" },
         { name: "Pretty Dryx", image: "assets/prettydryx.jpg" }
       ],
       'Mobile Legend':[
-        { name: "Dark Swan", image: "assets/darkswan.jpg" },
+        { name: "The Princess", image: "assets/theprincess.jpg" },
         { name: "Bullgod", image: "assets/bullgod.jpg" }
       ],
       'PUBG':[

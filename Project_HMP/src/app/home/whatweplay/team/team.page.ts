@@ -10,15 +10,18 @@ import { TeamserviceService } from 'src/app/teamservice.service';
 })
 export class TeamPage implements OnInit {
 
-  games: any[]=[]
+  games:any = []
   teams: any[]=[]
   selectedgameName: string=""
   gameimage: string=""
+  
 
   constructor(private route: ActivatedRoute, private gameservice: GameserviceService, private teamservice: TeamserviceService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params =>{
+      this.games = this.gameservice.game;
+
       this.selectedgameName = params['game']
       this.gameimage = params['gameimg']
 

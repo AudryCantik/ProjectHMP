@@ -30,7 +30,7 @@
       <ion-row>
         <ion-col *ngFor="let team of teams">
           <ion-list>
-            <ion-item [routerLink]="['/home/whatweplay/team/member', {team:team.name}]" routerLinkActive="router-link-active" >
+            <ion-item [routerLink]="['/home/whatweplay/team/member', {team:team.name, gameimg:gameimage}]" routerLinkActive="router-link-active" >
               <h5>{{ team.name }}</h5>
             </ion-item>
             <ion-item>
