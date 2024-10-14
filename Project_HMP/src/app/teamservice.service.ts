@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class TeamserviceService {
 
-  allteam:{ [key: string]: {name: string; image: string}[] } =
+  allteam:{ [team: string]: {name: string; image: string}[] } =
     {
       'Valorant':[
         { name: "Dark Swan", image: "assets/darkswan.jpg" },
@@ -24,6 +24,10 @@ export class TeamserviceService {
   constructor() { }
 
   getTeam(gamename: string){
-    return this.allteam[gamename] || [];
+    if(gamename.length !=0){
+      return this.allteam[gamename];
+    }else{
+      return[];
+    }
   }
 }

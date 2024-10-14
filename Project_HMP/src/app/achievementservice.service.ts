@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AchievementserviceService {
 
-  allachievement:{ [key: string]: { title: string; year: number; team: string }[] } ={
+  allachievement:{ [game: string]: { title: string; year: number; team: string }[] } ={
     'Valorant':[
       { title: 'First Blood', year: 2023 , team: 'Dark Swan' },
       { title: 'Ace', year: 2023, team: 'Dark Swan' },
@@ -30,6 +30,12 @@ export class AchievementserviceService {
   constructor() { }
 
   getAchievement(gamename:string){
-    return this.allachievement[gamename] || [];
+    if(gamename.length !=0){
+      return this.allachievement[gamename]
+
+    }else
+    {
+      return [];
+    };
   }
 }
