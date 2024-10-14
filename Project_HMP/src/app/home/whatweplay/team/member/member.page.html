@@ -25,12 +25,14 @@
 </div>
 
 <div class="content">
+  <h2>{{selectedTeamName}}</h2>
+
   <ion-card *ngFor="let member of members">
       <ion-card-header>
           <div class="member-content">
             <div class="member-info">
-              <ion-avatar slot="start">
-                <img alt="Our members" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+              <ion-avatar slot="start" class="myAvatar">
+                <img alt="Our members" src="/assets/{{member.avatar}}" />
               </ion-avatar>
 
               <ion-card-title>{{member.name}}</ion-card-title>

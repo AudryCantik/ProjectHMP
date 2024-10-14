@@ -7,22 +7,22 @@ export class AchievementserviceService {
 
   allachievement:{ [key: string]: { title: string; year: number; team: string }[] } ={
     'Valorant':[
-      { title: 'First Blood', year: 2023 , team: 'Team A' },
-      { title: 'Ace', year: 2023, team: 'Team B' },
-      { title: 'Spike Defused', year: 2024, team: 'Team C' },
-      { title: 'Clutch Master', year: 2022, team: 'Team D' }
+      { title: 'First Blood', year: 2023 , team: 'Dark Swan' },
+      { title: 'Ace', year: 2023, team: 'Dark Swan' },
+      { title: 'Spike Defused', year: 2024, team: 'Pretty Dryx' },
+      { title: 'Clutch Master', year: 2022, team: 'Pretty Dryx' }
     ],
     'Mobile Legend': [
-      { title: 'MVP', year: 2022 , team: 'Team C' },
-      { title: 'Champion', year: 2023, team: 'Team D' },
-      { title: 'First Blood', year: 2024, team: 'Team E' },
-      { title: 'Epic Comeback', year: 2022, team: 'Team F' }
+      { title: 'MVP', year: 2022 , team: 'Bullgod' },
+      { title: 'Champion', year: 2023, team: 'The Princess' },
+      { title: 'First Blood', year: 2024, team: 'The Princess' },
+      { title: 'Epic Comeback', year: 2022, team: 'Bullgod' }
     ],
     'PUBG':[
-      { title: 'Winner Winner Chicken Dinner', year: 2023 , team: 'Team E' },
-      { title: 'Top 10 Finish', year: 2022 , team: 'Team F' },
-      { title: 'Survivor', year: 2025, team: 'Team G' },
-      { title: 'Master Sniper', year: 2023 , team: 'Team H' }
+      { title: 'Winner Winner Chicken Dinner', year: 2023 , team: 'The Pitcher' },
+      { title: 'Top 10 Finish', year: 2022 , team: 'GKeyz' },
+      { title: 'Survivor', year: 2025, team: 'The Pitcher' },
+      { title: 'Master Sniper', year: 2023 , team: 'GKeyz' }
     ],
   };
 

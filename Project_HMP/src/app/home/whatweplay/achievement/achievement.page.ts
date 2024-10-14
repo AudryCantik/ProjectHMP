@@ -37,9 +37,6 @@ export class AchievementPage implements OnInit {
         if(achievement.year === this.selectedyear){
           this.chooseAchievement.push(achievement);
         }
-      // this.chooseAchievement = this.achievements.filter(achievement => 
-      //   achievement.year  === this.selectedyear
-      // );
     }
     console.log('Filtered Achievements:', this.chooseAchievement);
   }
