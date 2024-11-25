@@ -1,44 +1,55 @@
 <ion-app>
   <ion-router-outlet id="main"></ion-router-outlet>
 
-  <ion-tabs>
-    <ion-menu auto-hide="true" contentId="main">
+  <ion-menu auto-hide="true" contentId="main">
 
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Menu List</ion-title>
-        </ion-toolbar>
-      </ion-header>  
-      <ion-content class="ion-padding">
-        <ion-list>
-          <ion-menu-toggle>
-            <ion-item routerLink="/home">
-              <ion-icon name="home" slot="start"></ion-icon>
-              <ion-label>Home</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu List</ion-title>
+      </ion-toolbar>
+    </ion-header>  
+    <ion-content class="ion-padding">
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/whatweplay">
+            <ion-icon name="game-controller-outline" slot="start"></ion-icon>
+            <ion-label>What We play</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
 
-          <ion-menu-toggle>
-            <ion-item routerLink="/home/whatweplay">
-              <ion-icon name="game-controller-outline" slot="start"></ion-icon>
-              <ion-label>What We play</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/whoweare">
+          <ion-icon name="information-circle-outline" slot="start"></ion-icon>              
+          <ion-label>Who We Are</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
 
-          <ion-menu-toggle>
-            <ion-item routerLink="/home/whoweare">
-            <ion-icon name="information-circle-outline" slot="start"></ion-icon>              <ion-label>Who We Are</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-
-          <ion-menu-toggle>
-            <ion-item routerLink="/home/ourschedule">
-              <ion-icon name="calendar-outline" slot="start"></ion-icon>
-              <ion-label>Our Schedule</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-      </ion-content>
+        <ion-menu-toggle>
+          <ion-item routerLink="/ourschedule">
+            <ion-icon name="calendar-outline" slot="start"></ion-icon>
+            <ion-label>Our Schedule</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
   </ion-menu>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="whatweplay">
+      <ion-icon name="game-controller-outline"></ion-icon>
+      <ion-label>What We Play</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button tab="whoweare">
+      <ion-icon name="information-circle-outline"></ion-icon>              
+      <ion-label>Who We Are</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button tab="ourschedule">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <ion-label>Our Schedule</ion-label>
+    </ion-tab-button>
+    </ion-tab-bar>
   </ion-tabs>
 </ion-app>
