@@ -12,7 +12,11 @@ export class WhatweplayPage implements OnInit {
   constructor(private gameservice:GameserviceService) { }
 
   ngOnInit() {
-    this.games = this.gameservice.game;
+    this.gameservice.gameList().subscribe(
+      (data)=>{
+        this.games = data
+      }
+    )
   }
 
 }
