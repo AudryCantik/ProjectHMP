@@ -7,8 +7,9 @@ const routes: Routes = [
   {
     path: '',
     component: WhatweplayPage
-  },  {
-    path: 'achievement',
+  },
+  {
+    path: 'achievement/:idgame',
     loadChildren: () => import('./achievement/achievement.module').then( m => m.AchievementPageModule)
   },
   {

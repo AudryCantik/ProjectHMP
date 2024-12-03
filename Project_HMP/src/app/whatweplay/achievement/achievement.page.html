@@ -29,7 +29,7 @@
     <ion-list>
       <ion-item>
         <ion-select label="Year" [(ngModel)]="selectedyear" label-placement ="floating" fill="outline" (ionChange) ="filtereAchievement()">
-          <ion-select-option value="0">All</ion-select-option>
+          <ion-select-option value="1">All</ion-select-option>
           <ion-select-option *ngFor="let year of array_year" [value]="year">{{year}}</ion-select-option>
         </ion-select>
       </ion-item>
@@ -38,23 +38,20 @@
   <ion-list>
     <h4>{{selectedgameName}}'s Achievement</h4>
     <ion-item *ngFor="let achievement of chooseAchievement; let i = index">
-      <ion-label> {{i + 1}}. {{achievement.title}} ({{achievement.year}}) - {{achievement.team}}</ion-label>
+      <ion-label> {{i + 1}}. {{achievement.name}}({{achievement.year}}) - {{achievement.team_name}}</ion-label>
     </ion-item>
   </ion-list>
 
-  <!-- <ion-item *ngFor="let achievement of chooseAchievement; let i = index">
-    <ion-label> {{i + 1}}. {{achievement.title}} ({{achievement.year}}) - {{achievement.team}}</ion-label>
-  </ion-item> -->
 
-  <ion-list *ngIf="selectedyear === 0">
+  <ion-list *ngIf="selectedyear === 0"> <!-- Kondisi untuk menampilkan jika All dipilih dan tidak ada data -->
     <ion-item>
       <ion-label>Please Select Year to view Achievements</ion-label>
     </ion-item>
   </ion-list>
 
-  <ion-list *ngIf="selectedyear != 0 && chooseAchievement.length === 0">
+  <ion-list *ngIf="chooseAchievement.length === 0 &&  selectedyear > 1">
     <ion-item>
-      <ion-label>There are no achievements for this year</ion-label>
+      <ion-label>No Achivement in this year</ion-label>
     </ion-item>
   </ion-list>
 

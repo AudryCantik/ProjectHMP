@@ -27,7 +27,7 @@
       </ion-card-header>
       <ion-card-content>{{game.description}}</ion-card-content>
       <div class="buttoncontainer">
-        <ion-button size="small" fill="outline" shape="round" class="buttonAchieve" [routerLink]="['/whatweplay/achievement',{game:game.name,gameimg:game.image}]" routerLinkActive="router-link-active" >Achievement</ion-button>
+        <ion-button size="small" fill="outline" shape="round" class="buttonAchieve" [routerLink]="['/whatweplay/achievement', game.idgame]" routerLinkActive="router-link-active" >Achievement</ion-button>
         <ion-button size="small" fill="outline" shape="round" class="buttonteam" [routerLink]="['/whatweplay/team', {game:game.name, gameimg:game.image}]" routerLinkActive="router-link-active" >Teams</ion-button>
       </div>
     </ion-card>

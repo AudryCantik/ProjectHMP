@@ -11,11 +11,12 @@ import { AchievementserviceService } from 'src/app/achievementservice.service';
 export class AchievementPage implements OnInit {
   
   games: any[] = [];
-  achievements: any[] = [];
+  achievements: any = {} ;
   selectedgameName: string ="";
   gameimage: string ="";
   selectedyear: number = 0;
   chooseAchievement: any[] =[]
+  filteredPasta: any[] = [];
 
   array_year:number[] = [];
 
@@ -30,7 +31,7 @@ export class AchievementPage implements OnInit {
   filtereAchievement(){
     this.chooseAchievement = [];
 
-    if(this.selectedyear == 0 ){
+    if(this.selectedyear == 1 ){
       this.chooseAchievement = this.achievements;
     }else {
       for(let achievement of this.achievements)
@@ -44,10 +45,22 @@ export class AchievementPage implements OnInit {
   constructor(private route: ActivatedRoute, private gameservice: GameserviceService,private achievementservice : AchievementserviceService) { }
   ngOnInit() {
     this.route.params.subscribe(params =>{
-      this.selectedgameName = params ['game'];
-      this.gameimage = params ['gameimg'];
+      const idgame = params ['idgame'];
+      
+      this.achievementservice.getAchievement(params['idgame']).subscribe(
+        (data: any[])=> {
+          this.achievements=data;
 
-      this.achievements = this.achievementservice.getAchievement(this.selectedgameName);
+          if(data && data[0]){
+            this.selectedgameName = data[0].game_name;
+            this.gameimage = data [0].game_picture;
+          }
+
+          this.filtereAchievement();
+
+          
+        }
+      );
     });
     this.array_year = this.generateNumberOptions(2020,2030,1); 
 
