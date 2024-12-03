@@ -1,71 +1,37 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
-export interface Ourschedule{
-    date: string;
-    name: string;
-    team: string;
+export interface Ourschedule {
+  date: string;
+  name: string;
+  team: string;
 }
 
-export interface Scheduledetails{
-    img: string;
-    name: string;
-    place: string;
-    time: string;
-    team: string;
-    description: string;
+export interface Scheduledetails {
+  img: string;
+  name: string;
+  place: string;
+  time: string;
+  team: string;
+  description: string;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ScheduleserviceService {
+  private baseUrl = 'https://ubaya.xyz/hybrid/160422127/Project_UAS'; 
 
-    schedule: Ourschedule[] = [
-        {
-            date: "10 OKTOBER",
-            name: "Regional Qualifier - Valorant",
-            team: "CeTry"  
-        },
-        {
-            date: "12 November",
-            name: "Mobile Legend Workshop",
-            team: "CeTry"  
-        },
-        {
-            date: "25 November",
-            name: "PUBG - Livestream",
-            team: "CeTry"  
-        },
-    ]
+  constructor(private http: HttpClient) {}
 
-    details: Scheduledetails[] = [
-        {
-            img: "assets/valo.jpeg",
-            name: "Regional Qualifier - Valorant",
-            place: "Galaxy Mall, SBY",
-            time: "10.00 AM",
-            team: "CeTry",
-            description: "This high stakes event will bring together top teams from Surabaya to compete for a chance to advance."
-        },
-        {
-            img: "assets/ml.png",
-            name: "Mobile Legend Workshop",
-            place: "Tunjungan Plaza, SBY",
-            time: "13.00 PM",
-            team: "CeTry",
-            description: "A fast paced course for beginner competitive players. Taught by professionals and developer alike."
-        },
-        {
-            img: "assets/livestream.jpg",
-            name: "PUBG - Livestream",
-            place: "At Home",
-            time: "18.00 PM",
-            team: "CeTry",
-            description: "Share your casuals matches with your fans through a livestream."
-        },
-    ]
+  getSchedule(): Observable<Ourschedule[]> {
+    return this.http.get<Ourschedule[]>(`${this.baseUrl}/schedule.php`);
+  }
 
-
-  constructor() { }
-
+  getScheduleDetail(name: string): Observable<Scheduledetails[]> {
+    return this.http.get<Scheduledetails[]>(
+      `${this.baseUrl}/schedule_detail.php?name=${encodeURIComponent(name)}`
+    );
+  }
 }

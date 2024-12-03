@@ -9,25 +9,31 @@ import { ScheduleserviceService, Scheduledetails } from 'src/app/scheduleservice
   styleUrls: ['./scheduledetails.page.scss'],
 })
 export class ScheduledetailsPage implements OnInit {
-  
-  selectedEvent: Scheduledetails | undefined; // Use this property to hold the event details
-  
+  selectedEvent: Scheduledetails | undefined;
+
   constructor(
     private scheduleService: ScheduleserviceService,
-    private route: ActivatedRoute,        
-    private alertCtrl: AlertController    
-  ) { }
+    private route: ActivatedRoute,
+    private alertCtrl: AlertController
+  ) {}
 
   ngOnInit() {
-    const eventName = this.route.snapshot.paramMap.get('name'); // Assuming you're passing 'name' in the route
-    this.selectedEvent = this.scheduleService.details.find(event => event.name === eventName); // Find the event in the details array
+    const eventName = this.route.snapshot.paramMap.get('name');
+    if (eventName) {
+      this.scheduleService.getScheduleDetail(eventName).subscribe(
+        (data) => {
+          this.selectedEvent = data[0]; // Assuming API returns an array.
+        },
+        (error) => console.error('Error fetching schedule detail:', error)
+      );
+    }
   }
 
   async notifyMe() {
     const alert = await this.alertCtrl.create({
       header: 'Notification',
       message: 'Notification created.',
-      buttons: ['OK']
+      buttons: ['OK'],
     });
     await alert.present();
   }

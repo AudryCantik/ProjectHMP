@@ -9,9 +9,15 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
+<<<<<<< Updated upstream
   imports: [HttpClientModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule, IonicModule.forRoot({})],
+=======
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule, HttpClientModule, IonicModule.forRoot({})],
+>>>>>>> Stashed changes
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
