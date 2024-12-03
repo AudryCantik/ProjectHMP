@@ -29,9 +29,15 @@ const routes: Routes = [
   },
 
   {
+<<<<<<< Updated upstream
     path: 'scheduledetails/:name', // Adding the route for ScheduledetailsPage with a dynamic ID parameter
     loadChildren: () => import('./scheduledetails/scheduledetails.module').then(m => m.ScheduledetailsPageModule)
   },
+=======
+    path: 'scheduledetails/:name', 
+    loadChildren: () => import('./home/scheduledetails/scheduledetails.module').then(m => m.ScheduledetailsPageModule)
+  }
+>>>>>>> Stashed changes
 
 ];
 @NgModule({
