@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'whatweplay',  // Mengarahkan path kosong ke halaman 'home'
+    redirectTo: 'whatweplay',  // Mengarahkan path kosong ke halaman 'whatweplay'
     pathMatch: 'full'
   }, 
 

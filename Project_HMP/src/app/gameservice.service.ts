@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -27,6 +27,18 @@ export class GameserviceService {
 
   game = []
   url: string = "https://ubaya.xyz/hybrid/160422127/Project_UAS/"
+
+  login(p_username:string, p_password:string){
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('username', p_username);
+    body.set('password', p_password);
+
+    const urlEncodedData = body.toString();
+
+    return this.http.post("https://ubaya.xyz/hybrid/160422127/Project_UAS/login.php", urlEncodedData, { headers })
+  }
+
   constructor(private http: HttpClient) { }
 
   gameList(): Observable<any>{
