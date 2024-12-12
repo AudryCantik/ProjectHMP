@@ -7,8 +7,9 @@ const routes: Routes = [
   {
     path: '',
     component: TeamPage
-  },  {
-    path: 'member',
+  },
+  {
+    path: 'member/:idteam',
     loadChildren: () => import('./member/member.module').then( m => m.MemberPageModule)
   }
 

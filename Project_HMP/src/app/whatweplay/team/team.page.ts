@@ -14,19 +14,31 @@ export class TeamPage implements OnInit {
   teams: any[]=[]
   selectedgameName: string=""
   gameimage: string=""
+  idgame: String = ";"
   
 
   constructor(private route: ActivatedRoute, private gameservice: GameserviceService, private teamservice: TeamserviceService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params =>{
-      this.games = this.gameservice.game;
+      this.idgame = params ['idgame'];
 
-      this.selectedgameName = params['game']
-      this.gameimage = params['gameimg']
+      this.teamservice.getTeam(params['idgame']).subscribe((data:any[])=>{
+        this.teams=data;
 
-      this.teams = this.teamservice.getTeam(this.selectedgameName)
-    })
+        if(data && data[0]){
+          this.selectedgameName = data[0].game_name;
+          this.gameimage = data [0].game_picture;
+        }
+        
+      });
+      // this.games = this.gameservice.game;
+
+      // this.selectedgameName = params['game']
+      // this.gameimage = params['gameimg']
+
+      // this.teams = this.teamservice.getTeam(this.selectedgameName)
+    });
   }
 
   chunkArray(arr: any[], chunkSize: number): any[][] {

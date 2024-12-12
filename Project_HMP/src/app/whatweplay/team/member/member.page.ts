@@ -14,17 +14,26 @@ export class MemberPage implements OnInit {
   members:any=[]
   selectedTeamName: string=""
   gameimage: string=""
+  role: String =""
+  
+ 
 
   constructor(private route: ActivatedRoute,private animationCtrl: AnimationController, private teamservice: TeamserviceService, private memberservice: MemberserviceService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params =>{
+      const idteam = params ['idteam'];
 
-      this.gameimage = params['gameimg']
-      this.selectedTeamName = params['team']
+      this.memberservice.getteamMeber(params['idteam']).subscribe((data:any[])=>{
+        this.members=data;
 
-      this.members = this.memberservice.getMember(this.selectedTeamName)
+        if(data && data[0]){
+          this.selectedTeamName = data[0].team_name;
+          this.gameimage = data[0].game_picture;
+          this.role = data[0].description;
+        }
 
+      });
     })
   }
 
@@ -35,7 +44,7 @@ export class MemberPage implements OnInit {
          .create()
          .addElement(avatarElement)
          .duration(5000) 
-         .iterations(5) 
+         .iterations(100) 
          .keyframes([
              { offset: 0, transform: 'rotate(0deg)' }, 
              { offset: 1, transform: 'rotate(360deg)' }, 

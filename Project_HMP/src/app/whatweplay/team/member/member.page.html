@@ -32,14 +32,13 @@
           <div class="member-content">
             <div class="member-info">
               <ion-avatar slot="start" class="myAvatar">
-                <img alt="Our members" src="/assets/{{member.avatar}}" />
+                <img alt="Our members" src="{{member.picture}}" />
               </ion-avatar>
 
-              <ion-card-title>{{member.name}}</ion-card-title>
-              <ion-card-subtitle>{{member.birth}}</ion-card-subtitle>  
+              <ion-card-title>{{member.fname}} {{member.lname}}</ion-card-title>
             </div>
 
-            <ion-card-content>Role - {{member.role}}</ion-card-content>
+            <ion-card-content>Role - {{role}}</ion-card-content>
           </div>
       </ion-card-header>
   </ion-card>
