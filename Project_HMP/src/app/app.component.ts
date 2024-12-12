@@ -13,11 +13,36 @@ export class AppComponent {
   password=""
   fullname=""
 
+  isRegister:boolean=false
+
+  new_fname=""
+  new_lname=""
+  new_username=""
+  new_password=""
+  new_picture=""
+
   constructor(private gameservice:GameserviceService) {
     this.username = localStorage.getItem("app_username") ?? ""
     this.fullname = localStorage.getItem("app_fullname") ?? ""
 
     defineCustomElements(window)
+  }
+
+  goToRegister(){
+    this.isRegister=true
+
+    this.username=""
+    this.password=""
+  }
+
+  goToLogin(){
+    this.isRegister=false
+
+    this.new_fname=""
+    this.new_lname=""
+    this.new_password=""
+    this.new_username=""
+    this.new_picture=""
   }
 
   login(){
@@ -39,5 +64,22 @@ export class AppComponent {
     this.fullname=""
     localStorage.removeItem("app_username")
     localStorage.removeItem("app_fullname")
+  }
+
+  register(){
+    this.gameservice.register(this.new_fname, this.new_lname, this.new_username, this.new_password, this.new_picture).subscribe((response:any)=>{
+      if(response.result === 'success'){
+        // console.log("success")
+        alert("success")
+
+        this.new_fname=""
+        this.new_lname=""
+        this.new_password=""
+        this.new_username=""
+        this.new_picture=""
+      } else{
+        alert(response.message)
+      }
+    })
   }
 }

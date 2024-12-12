@@ -1,13 +1,41 @@
 <ion-app>
-  <ion-content *ngIf="!fullname" class="ion-padding">
+  <!-- login -->
+  <ion-content *ngIf="!fullname && !isRegister" class="ion-padding">
     <ion-card>
+      <h1>LOGIN</h1>
       <ion-item>
         <ion-input [(ngModel)]="username" label="Username" labelPlacement="floating" />
       </ion-item>
       <ion-item>
         <ion-input [(ngModel)]="password" type="password" label="Password" labelPlacement="floating" />
       </ion-item>
-      <ion-button expand="block" (click)="login()">Login</ion-button>     
+      <ion-button expand="block" (click)="login()">Login</ion-button>   
+      <ion-button expand="block" (click)="goToRegister()">Don't Have Account</ion-button>  
+    </ion-card>
+  </ion-content>
+
+  <!-- register -->
+  <ion-content *ngIf="!fullname && isRegister" class="ion-padding">
+    <ion-card>
+      <h1>REGISTER</h1>
+      <ion-item>
+        <ion-input [(ngModel)]="new_fname" label="First Name" labelPlacement="floating" />
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="new_lname" type="Last Name" label="Password" labelPlacement="floating" />
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="new_username" label="Username" labelPlacement="floating" />
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="new_password" type="Password" label="Password" labelPlacement="floating" />
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="new_picture" label="Picture" labelPlacement="floating" />
+        <ion-img [src]="new_picture"/>
+      </ion-item>
+      <ion-button expand="block" (click)="register()">Submit</ion-button>     
+      <ion-button expand="block" (click)="goToLogin()">Back to Login</ion-button>     
     </ion-card>
   </ion-content>
 
@@ -46,7 +74,7 @@
 
         <ion-menu-toggle>
           <ion-item>
-            <ion-button (click)="logout()">Logout</ion-button>
+            <ion-button slot="end" (click)="logout()">Logout</ion-button>
           </ion-item>
         </ion-menu-toggle>
       </ion-list>

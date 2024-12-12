@@ -39,6 +39,20 @@ export class GameserviceService {
     return this.http.post("https://ubaya.xyz/hybrid/160422127/Project_UAS/login.php", urlEncodedData, { headers })
   }
 
+  register(p_fname:string, p_lname:string, p_username:string, p_password:string, p_picture:string){
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('fname', p_fname);
+    body.set('lname', p_lname);
+    body.set('username', p_username);
+    body.set('password', p_password);
+    body.set('picture', p_picture);
+
+    const urlEncodedData = body.toString();
+
+    return this.http.post("https://ubaya.xyz/hybrid/160422127/Project_UAS/register.php", urlEncodedData, { headers })
+  }
+
   constructor(private http: HttpClient) { }
 
   gameList(): Observable<any>{
