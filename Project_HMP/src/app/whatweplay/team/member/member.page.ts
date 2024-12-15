@@ -22,7 +22,6 @@ export class MemberPage implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params =>{
-      const idteam = params ['idteam'];
 
       this.memberservice.getteamMeber(params['idteam']).subscribe((data:any[])=>{
         this.members=data;

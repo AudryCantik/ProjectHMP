@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/proposallist">
+        <ion-icon name="caret-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Join Proposal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Join Proposal</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container">
+    <ion-img [src]="gameimage"></ion-img>
+  </div>
+
+  <div class="content">
+    <h1>Join Our Teams</h1>
+    <ion-card>
+      <ion-list>
+        <ion-item>
+          <ion-select label="Choose Game" [(ngModel)]="selectedgame" label-placement="floating" fill="outline" (ionChange)="filterTeams()">
+            <ion-select-option *ngFor="let game of games" [value]="game.name">{{game.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <br><br>
+        <ion-item>
+          <ion-select label="Choose Team" [(ngModel)]="selectedteam" label-placement ="floating" fill="outline">
+            <ion-select-option *ngFor="let team of teams" [value]="team.name">{{team.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <br><br>
+        <ion-item>
+          <ion-textarea [(ngModel)]="description" label="Description" placeholder="write your description here" label-placement ="floating"></ion-textarea>
+        </ion-item>
+        <ion-button expand="block" (click)="joinProposal()">Submit Proposal</ion-button>   
+      </ion-list>
+    </ion-card>
+  </div>
+
+</ion-content>

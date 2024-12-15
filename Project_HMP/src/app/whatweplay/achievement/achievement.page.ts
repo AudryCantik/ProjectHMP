@@ -42,7 +42,7 @@ export class AchievementPage implements OnInit {
     console.log('Filtered Achievements:', this.chooseAchievement);
   }
 
-  constructor(private route: ActivatedRoute, private gameservice: GameserviceService,private achievementservice : AchievementserviceService) { }
+  constructor(private route: ActivatedRoute,private achievementservice : AchievementserviceService) { }
   ngOnInit() {
     this.route.params.subscribe(params =>{
       const idgame = params ['idgame'];

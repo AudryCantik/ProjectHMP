@@ -9,9 +9,11 @@ import { defineCustomElements} from '@ionic/pwa-elements/loader';
 })
 export class AppComponent {
 
+  id=""
   username=""
   password=""
   fullname=""
+  picture=""
 
   isRegister:boolean=false
 
@@ -22,8 +24,10 @@ export class AppComponent {
   new_picture=""
 
   constructor(private gameservice:GameserviceService) {
+    this.id = localStorage.getItem("app_id") ?? ""
     this.username = localStorage.getItem("app_username") ?? ""
     this.fullname = localStorage.getItem("app_fullname") ?? ""
+    this.picture = localStorage.getItem("app_image") ?? ""
 
     defineCustomElements(window)
   }
@@ -48,10 +52,14 @@ export class AppComponent {
   login(){
     this.gameservice.login(this.username, this.password).subscribe((response:any) => {
       if(response.result === "success"){
-        alert("success")
+          alert("Login Successfull! Welcome, " + this.fullname)
           this.fullname = response.fullname
+          this.picture = response.picture
+          this.id = response.idmember
+          localStorage.setItem("app_id", this.id)
           localStorage.setItem("app_username", this.username)
           localStorage.setItem("app_fullname", this.fullname)
+          localStorage.setItem("app_image", this.picture)
         } else{
           alert(response.message)
         }

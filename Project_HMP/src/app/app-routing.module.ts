@@ -31,7 +31,15 @@ const routes: Routes = [
   {
     path: 'scheduledetails/:name', // Adding the route for ScheduledetailsPage with a dynamic ID parameter
     loadChildren: () => import('./scheduledetails/scheduledetails.module').then(m => m.ScheduledetailsPageModule)
+  },  {
+    path: 'joinproposal',
+    loadChildren: () => import('./joinproposal/joinproposal.module').then( m => m.JoinproposalPageModule)
   },
+  {
+    path: 'proposallist',
+    loadChildren: () => import('./proposallist/proposallist.module').then( m => m.ProposallistPageModule)
+  },
+
 
 ];
 @NgModule({
