@@ -52,14 +52,17 @@ export class AppComponent {
   login(){
     this.gameservice.login(this.username, this.password).subscribe((response:any) => {
       if(response.result === "success"){
-          alert("Login Successfull! Welcome, " + this.fullname)
           this.fullname = response.fullname
           this.picture = response.picture
           this.id = response.idmember
+          
           localStorage.setItem("app_id", this.id)
           localStorage.setItem("app_username", this.username)
           localStorage.setItem("app_fullname", this.fullname)
           localStorage.setItem("app_image", this.picture)
+
+          alert("Login Successfull! Welcome, "+ this.fullname)
+
         } else{
           alert(response.message)
         }
