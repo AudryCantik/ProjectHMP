@@ -58,6 +58,27 @@ export class GameserviceService {
     return this.http.post("https://ubaya.xyz/hybrid/160422127/Project_UAS/get_proposal_bymember.php", urlEncodedData, { headers })
   }
 
+  numLikes(p_idmember:number){
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('member_id', p_idmember.toString());
+
+    const urlEncodedData = body.toString();
+
+    return this.http.post("https://ubaya.xyz/hybrid/160422127/Project_UAS/get_like.php", urlEncodedData, { headers })
+  }
+
+  likeAction(p_idmember:number, p_status_like:number){
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('member_id', p_idmember.toString());
+    body.set('status_like', p_status_like.toString());
+
+    const urlEncodedData = body.toString();
+
+    return this.http.post("https://ubaya.xyz/hybrid/160422127/Project_UAS/likes.php", urlEncodedData, { headers })
+  }
+
 
 
   constructor(private http: HttpClient) { }

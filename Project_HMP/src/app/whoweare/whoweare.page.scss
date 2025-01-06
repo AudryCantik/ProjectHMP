@@ -4,25 +4,28 @@
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: justify;
-}
-
-.container h2{
-    text-align: center;
-}
-  
-.container img {
-    width: 100%; 
-    height: auto;
-}
-  
-.button-container{
     display: flex;
-    padding-bottom: 10px;
-    margin-top: auto;
-    float: right;
-}
-
-.button2{
+    flex-direction: column;
+    min-height: 100%; /* Membuat container mengambil tinggi penuh */
+  }
+  
+  .container h2 {
+    text-align: center;
+  }
+  
+  .container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .button-container {
+    margin-top: auto; /* Memastikan tombol berada di bawah */
+    display: flex;
+    justify-content: flex-end; /* Menempatkan tombol di sisi kanan */
+  }
+  
+  .button2 {
     width: 100px;
     height: 50px;
-}
+  }
+  
