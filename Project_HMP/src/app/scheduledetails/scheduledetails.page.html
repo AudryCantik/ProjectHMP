@@ -3,12 +3,12 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-      <ion-title> Schedule Detail </ion-title>
-      <ion-buttons slot="end">
-        <ion-buttons style="padding-right: 10px">
-          <ion-icon name="person-circle-outline" size="large"></ion-icon>
-        </ion-buttons>
+    <ion-title>Schedule Detail</ion-title>
+    <ion-buttons slot="end">
+      <ion-buttons style="padding-right: 10px">
+        <ion-icon name="person-circle-outline" size="large"></ion-icon>
       </ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -32,10 +32,20 @@
       </ion-card-content>
       
       <div class="button-container">
-      <ion-button size="small" fill="outline" shape="round" class="button2" (click)="notifyMe()">
-        <ion-text>Notify Me</ion-text>
-        <ion-icon name="notifications-outline"></ion-icon>
-      </ion-button>
+        <ion-button
+          size="small"
+          [fill]="isNotificationActive ? 'solid' : 'outline'"
+          shape="round"
+          class="button2"
+          (click)="toggleNotification()"
+        >
+          <ion-text>
+            {{ isNotificationActive ? 'Turn Off Notification' : 'Notify Me' }}
+          </ion-text>
+          <ion-icon
+            [name]="isNotificationActive ? 'notifications' : 'notifications-outline'"
+          ></ion-icon>
+        </ion-button>
       </div>
     </ion-card>
   </div>

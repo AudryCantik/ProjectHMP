@@ -10,6 +10,7 @@ import { ScheduleserviceService, Scheduledetails } from 'src/app/scheduleservice
 })
 export class ScheduledetailsPage implements OnInit {
   selectedEvent: Scheduledetails | undefined;
+  isNotificationActive = false; // Track notification state
 
   constructor(
     private scheduleService: ScheduleserviceService,
@@ -29,12 +30,22 @@ export class ScheduledetailsPage implements OnInit {
     }
   }
 
-  async notifyMe() {
-    const alert = await this.alertCtrl.create({
-      header: 'Notification',
-      message: 'Notification created.',
-      buttons: ['OK'],
-    });
-    await alert.present();
+  async toggleNotification() {
+    if (this.isNotificationActive) {
+      const alert = await this.alertCtrl.create({
+        header: 'Notification',
+        message: 'Notification deactivated.',
+        buttons: ['OK'],
+      });
+      await alert.present();
+    } else {
+      const alert = await this.alertCtrl.create({
+        header: 'Notification',
+        message: 'Notification activated.',
+        buttons: ['OK'],
+      });
+      await alert.present();
+    }
+    this.isNotificationActive = !this.isNotificationActive; // Toggle state
   }
 }
