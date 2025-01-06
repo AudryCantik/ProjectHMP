@@ -13,13 +13,13 @@
       <ion-button expand="block" (click)="goToRegister()">Don't Have Account</ion-button>  
     </ion-card>
   </ion-content>
-
+   
   <!-- register -->
   <ion-content *ngIf="!fullname && isRegister" class="ion-padding">
     <ion-card>
       <h1>REGISTER</h1>
       <ion-item>
-        <ion-input [(ngModel)]="new_fname" label="First Name" labelPlacement="floating" />
+        <ion-input [(ngModel)]="new_fname" label="First Name" labelPlacement="floating" />   
       </ion-item>
       <ion-item>
         <ion-input [(ngModel)]="new_lname" label="Last Name" labelPlacement="floating" />
@@ -31,10 +31,19 @@
         <ion-input [(ngModel)]="new_password" type="Password" label="Password" labelPlacement="floating" />
       </ion-item>
       <ion-item>
+        <ion-input [(ngModel)]="rePassword" type="Password" label="Re-Password" labelPlacement="floating" />
+      </ion-item>
+      <ion-item>
         <ion-input [(ngModel)]="new_picture" label="Picture" labelPlacement="floating" />
         <ion-img [src]="new_picture"/>
       </ion-item>
-      <ion-button expand="block" (click)="register()">Submit</ion-button>     
+
+      <ion-item>
+        <ion-checkbox slot="start" [(ngModel)]="agreed"></ion-checkbox>
+        <ion-label labelPlacement="start">I agree to the terms and condition</ion-label>
+      </ion-item>
+
+      <ion-button expand="block" [disabled]="!agreed" (click)="register()">Submit</ion-button>     
       <ion-button expand="block" (click)="goToLogin()">Back to Login</ion-button>     
     </ion-card>
   </ion-content>
