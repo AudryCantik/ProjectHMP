@@ -16,12 +16,14 @@ export class AppComponent {
   picture=""
 
   isRegister:boolean=false
+  agreed:boolean =false
 
   new_fname=""
   new_lname=""
   new_username=""
   new_password=""
   new_picture=""
+  rePassword = ""
 
   constructor(private gameservice:GameserviceService) {
     this.id = localStorage.getItem("app_id") ?? ""
@@ -47,6 +49,7 @@ export class AppComponent {
     this.new_password=""
     this.new_username=""
     this.new_picture=""
+    this.rePassword = ""
   }
 
   login(){
@@ -78,19 +81,29 @@ export class AppComponent {
   }
 
   register(){
-    this.gameservice.register(this.new_fname, this.new_lname, this.new_username, this.new_password, this.new_picture).subscribe((response:any)=>{
-      if(response.result === 'success'){
-        // console.log("success")
-        alert("success")
+    if(!this.agreed){
+      alert("Please checklist the checkbox");
+    }else if(this.new_password=== this.rePassword){
+      this.gameservice.register(this.new_fname, this.new_lname, this.new_username, this.new_password, this.new_picture).subscribe((response:any)=>{
+        if(response.result === 'success'){
+          // console.log("success")
+          alert("success")
+  
+          this.new_fname=""
+          this.new_lname=""
+          this.new_password=""
+          this.new_username=""
+          this.new_picture=""
+          this.rePassword=""
 
-        this.new_fname=""
-        this.new_lname=""
-        this.new_password=""
-        this.new_username=""
-        this.new_picture=""
-      } else{
-        alert(response.message)
-      }
-    })
+          this.goToLogin()
+        } else{
+          alert(response.message)
+        }
+      });
+    }else{
+      alert("Passwords do not match.Please re-enter")
+    }
+   
   }
 }
