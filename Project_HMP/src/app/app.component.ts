@@ -87,14 +87,7 @@ export class AppComponent {
       this.gameservice.register(this.new_fname, this.new_lname, this.new_username, this.new_password, this.new_picture).subscribe((response:any)=>{
         if(response.result === 'success'){
           // console.log("success")
-          alert("success")
-  
-          this.new_fname=""
-          this.new_lname=""
-          this.new_password=""
-          this.new_username=""
-          this.new_picture=""
-          this.rePassword=""
+          alert("Registration Sucessfull")
 
           this.goToLogin()
         } else{
